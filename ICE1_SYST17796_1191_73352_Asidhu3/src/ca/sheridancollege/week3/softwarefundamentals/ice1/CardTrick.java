@@ -6,7 +6,6 @@
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
@@ -23,9 +22,8 @@ public class CardTrick {
         
         magicHand = createSevenCards();
         System.out.println("Pick a card");
-        int suitIndex = inputHandleSystem.getInt("Suit index of this card: (0:Hearts, 1:Diamonds, 2:Spades, 3:Clubs)", Domain.limited, 0, 3);
+        int suitIndex = inputHandleSystem.getInt("Suit index of this card: (0:Hearts, 1:Diamonds, 2:Spades, 3:Clubs) ", Domain.limited, 0, 3);
         int value = inputHandleSystem.getInt("Pick a value: ", Domain.limited, 1, 13);
-        inputHandleSystem.closeReader();
 
         Card userCard = new Card();
         userCard.setValue(value);
@@ -38,8 +36,10 @@ public class CardTrick {
         
         //luckyCard
         Card luckyCard = new Card();
-        luckyCard.setValue(10);
-        luckyCard.setSuit(Card.SUITS[2]);
+        luckyCard.setValue(inputHandleSystem.getInt("Chose your lucky card value!\n", Domain.limited, 1, 13));
+        luckyCard.setSuit(Card.SUITS[inputHandleSystem.getInt("Chose your lucky card suit!\n", Domain.limited, 0, 3)]);
+        inputHandleSystem.closeReader();
+        System.out.printf("Your luckey card suit is %d, %s", luckyCard.getValue(), luckyCard.getSuit());
     }
 
 
