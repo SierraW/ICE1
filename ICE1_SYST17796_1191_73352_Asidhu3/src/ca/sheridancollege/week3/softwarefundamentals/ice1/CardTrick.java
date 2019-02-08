@@ -35,6 +35,11 @@ public class CardTrick {
         String result = isMagicHandCard(userCard);
         //Then report the result here
         System.out.println(result);
+        
+        //luckyCard
+        Card luckyCard = new Card();
+        luckyCard.setValue(10);
+        luckyCard.setSuit(Card.SUITS[2]);
     }
 
 
